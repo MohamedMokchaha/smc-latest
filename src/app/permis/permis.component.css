@@ -1,0 +1,123 @@
+body {
+  background-color: #f9f9f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.9); 
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: 20px;
+  border: 2px solid rgb(5, 5, 92); /* Cadre bleu autour du conteneur */
+  width: 90%;
+  max-width: 750px;
+  margin-bottom: 30px;
+}
+
+h5 {
+  font-weight: 600;
+  color:  rgb(5, 5, 92);; /* Text color */
+  margin-bottom: 30px; /* Space below heading */
+  text-align: center; /* Center text */
+  font-size: 30px;
+}
+
+label {
+  font-size: 18px;
+  font-weight: bold; /* Bold labels */
+  color: black; /* Label color */
+  margin-bottom: 10px; /* Space below labels */
+}
+
+input.form-control {
+  border: none; /* Remove all borders */
+  border-bottom: 2px solid #ccc; /* Only show the bottom border */
+  padding: 10px 0; /* Adjust padding to suit the design */
+  transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+input.form-control:focus {
+  border-bottom: 2px solid #ff9800; /* Highlight bottom border on focus */
+  box-shadow: none; /* Remove any shadow */
+}
+
+/* Optional: Add a hover effect */
+input.form-control:hover {
+  border-bottom: 2px solid #ff9800; /* Change color on hover */
+}
+
+
+.text-danger {
+  font-size: 0.875rem; /* Error message font size */
+  color: orangered; /* Error message color */
+  margin-top: 5px; /* Spacing */
+}
+
+.form-check-label {
+  font-weight: 500;
+  color: black; /* Label color for checkbox */
+}
+.btn {
+  flex: 1;                                   /* Occupy equal space */
+  margin: 0 5px;                            /* Spacing between buttons */
+  padding: 15px;                            /* Increased padding for size */
+  font-size: 18px;                          /* Font size */
+  font-weight: 500;
+}
+
+button.btn {
+  background-color: rgb(4, 4, 104);                /* Primary button color */
+    color: white;                              /* Text color */
+    border: none;                              /* No border */
+    border-radius: 20px;  
+    font-size:18px ; 
+    font-weight: 500;
+}
+
+button.btn-warning {
+  background-color: rgb(6, 6, 143);    /* Warning button color */
+  color: #fff; /* Text color */
+}
+
+button.btn-secondary {
+  background-color: #6c757d; /* Secondary button color */
+  color: #fff; /* Text color */
+}
+
+button.btn:hover {
+  opacity: 0.9; /* Slight opacity on hover */
+  
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 768px) {
+  .container {
+      padding: 20px;
+  }
+
+  .form-row {
+      flex-direction: column;
+  }
+
+  .form-group {
+      margin-bottom: 20px;
+  }
+
+  .btn {
+      margin: 10px 0;
+  }
+}
+
+.error-message {
+  color: orangered;                         /* Error message color */
+  font-size: 0.85rem;                      /* Smaller font size */
+  margin-top: 5px;                         /* Space above error message */
+}
+.required {
+  color: orangered;                           /* Color for the required asterisk */
+}
+.custom-warning{
+  color: #ff9800;
+}

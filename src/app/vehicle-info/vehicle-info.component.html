@@ -1,0 +1,100 @@
+<div class="container mt-5">
+  <h2 class="text-center" style="font-size: 34px;">Votre Véhicule</h2>
+  <form [formGroup]="vehicleForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="vehicleBrand">Marque :<span class="required">*</span></label>
+      <div class="input-icon" (click)="toggleDropdown()">
+        <i class="fa fa-car"></i>
+        <div class="dropdown">
+          <div class="selected-option" [textContent]="vehicleForm.get('vehicleBrand')?.value || 'Sélectionnez une marque'"></div>
+          <div class="options" *ngIf="dropdownOpen">
+            <div *ngFor="let brand of brands" (click)="selectBrand(brand.name)">
+              <img [src]="brand.logo" alt="{{ brand.name }} Logo" class="brand-logo" />
+              {{ brand.name }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="vehicleForm.get('vehicleBrand')?.invalid && (submitted || vehicleForm.get('vehicleBrand')?.touched)" class="text-danger">
+        Ce champ est requis.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="engineCapacity">Cylindrée :<span class="required">*</span></label>
+      <div class="input-icon">
+        <i class="fa fa-cogs"></i>
+        <input type="text" class="form-control" id="engineCapacity" formControlName="engineCapacity" required>
+        <div *ngIf="vehicleForm.get('engineCapacity')?.invalid && (submitted || vehicleForm.get('engineCapacity')?.touched)" class="text-danger">
+          Ce champ est requis.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="model">Modèle :</label>
+      <div class="input-icon">
+        <i class="fa fa-car"></i>
+        <input type="text" class="form-control" id="model" formControlName="model" placeholder="">
+        <small>Modèle (optionnel, D.3 certificat d’immatriculation).</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="type">Type :</label>
+      <div class="input-icon">
+        <i class="fa fa-car"></i>
+        <input type="text" class="form-control" id="type" formControlName="type" placeholder="">
+        <small>Type (optionnel, D.2 certificat d’immatriculation).</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="registrationNumber">N° d’immatriculation :</label>
+      <div class="input-icon">
+        <i class="fa fa-id-card"></i>
+        <input type="text" class="form-control" id="registrationNumber" formControlName="registrationNumber">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="firstRegistrationDate">Date de 1ère mise en circulation :<span class="required">*</span></label>
+      <div class="input-icon">
+        <i class="fa fa-calendar"></i>
+        <input type="date" class="form-control" id="firstRegistrationDate" formControlName="firstRegistrationDate" required>
+        <div *ngIf="vehicleForm.get('firstRegistrationDate')?.invalid && (submitted || vehicleForm.get('firstRegistrationDate')?.touched)" class="text-danger">
+          Ce champ est requis.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="acquisitionDate">Date d’acquisition :<span class="required">*</span></label>
+      <div class="input-icon">
+        <i class="fa fa-calendar"></i>
+        <input type="date" class="form-control" id="acquisitionDate" formControlName="acquisitionDate" required>
+        <div *ngIf="vehicleForm.get('acquisitionDate')?.invalid && (submitted || vehicleForm.get('acquisitionDate')?.touched)" class="text-danger">
+          Ce champ est requis.
+        </div>
+        <div *ngIf="!acquisitionDateValid && (submitted || vehicleForm.get('acquisitionDate')?.touched)" class="text-danger">
+          La date d'acquisition doit être postérieure ou égale à la date de 1ère mise en circulation.
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between mt-4">
+      <button type="button" class="btn btn-secondary" (click)="goBack()">
+        <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Revenir en arrière
+      </button>
+      <button type="submit" class="btn btn-primary">
+        Étape suivante <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+      </button>
+    </div>
+  </form>
+
+  <!-- Affichage des données combinées après soumission -->
+  <div *ngIf="submitted && combinedData" class="summary mt-5">
+    <h2>Résumé de la soumission</h2>
+    <pre>{{ combinedData | json }}</pre>
+  </div>
+</div>

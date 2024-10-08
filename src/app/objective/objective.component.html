@@ -1,0 +1,71 @@
+<div class="container mt-5">
+  <h1 class="text-center" style="font-size: 58px;">Obtenir un devis sur mesure</h1>
+
+  <ul class="info-list">
+    <li>Demande pour départ immédiat ou dans les 30 jours suivants votre demande</li>
+    <li>Demande pour changement d'assurance lorsque votre contrat a 1 an ou plus</li>
+    <li>INUTILE D'ENTRER DE FAUSSES DATES POUR OBTENIR UN DEVIS PLUS VITE</li>
+  </ul>
+
+  <div class="icons text-center">
+    <img src="../../assets/moto.png" alt="Moto 3" class="moto-icon animated">
+  </div>
+
+  <h2 class="text-center">Votre devis est pour :</h2>
+
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="options">
+        Sélectionnez une option : <span class="required">*</span>
+      </label>
+      <div class="select-icon">
+        <select class="form-control" id="options" formControlName="selectedOption">
+          <option value="" disabled selected>Un achat d'une nouvelle moto (Devis urgent traité dans la journée)</option>
+          <option value="assurer">ASSURER UN NOUVEAU VÉHICULE</option>
+          <option value="changer">CHANGER D’ASSURANCE</option>
+        </select>
+      </div>
+      <div *ngIf="myForm?.get('selectedOption')?.invalid && myForm?.get('selectedOption')?.touched" class="error-message">
+        Ce champ est requis.
+      </div>
+    </div>
+
+    <div *ngIf="myForm?.get('selectedOption')?.value === 'assurer'">
+      <label>Pour :</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" id="motoSupplementaire" value="supplementaire" formControlName="motoOption">
+        <label class="form-check-label" for="motoSupplementaire">POUR UNE MOTO SUPPLÉMENTAIRE</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" id="remplacement" value="remplacement" formControlName="motoOption">
+        <label class="form-check-label" for="remplacement">EN REMPLACEMENT DE MA MOTO ACTUELLE</label>
+      </div>
+    </div>
+
+    <div *ngIf="myForm?.get('selectedOption')?.value === 'changer'">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="annulation" formControlName="annulation">
+        <label class="form-check-label" for="annulation">SUITE À ANNULATION / RÉSILIATION PAR UN AUTRE ASSUREUR</label>
+      </div>
+    </div>
+
+    <div class="form-group mt-4">
+      <label for="purchaseDate">DATE D’ACHAT DE VOTRE NOUVELLE MOTO : <span class="required">*</span></label>
+      <input type="date" class="form-control" id="purchaseDate" formControlName="purchaseDate">
+      <div *ngIf="myForm?.get('purchaseDate')?.invalid && myForm?.get('purchaseDate')?.touched" class="error-message">
+        Ce champ est requis.
+      </div>
+    </div>
+
+    <div class="form-check mt-2">
+      <input class="form-check-input" type="checkbox" id="projectPurchase" formControlName="projectPurchase">
+      <label class="form-check-label" for="projectPurchase">PROJET D’ACHAT dans les 30 jours</label>
+    </div>
+
+    <div class="button-container">
+      <button type="submit" id="animatebutton" class="btn btn-primary btn-icon-text animatebutton" [disabled]="myForm.invalid">
+        Étape suivante <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+      </button>
+    </div>
+  </form>
+</div>

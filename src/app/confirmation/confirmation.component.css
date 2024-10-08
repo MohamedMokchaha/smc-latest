@@ -1,0 +1,121 @@
+body {
+  background-color: #f9f9f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.9); 
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: 20px;
+  border: 2px solid rgb(5, 5, 92); /* Cadre bleu autour du conteneur */
+  width: 90%;
+  max-width: 750px;
+  margin-bottom: 30px;
+}
+
+h5 {
+  font-weight: 600;
+  color:  rgb(5, 5, 92); /* Darker text color for contrast */
+  margin-bottom: 20px; /* Space below heading */
+  text-align: center; /* Center text */
+  font-size: 30px;
+}
+
+label {
+  font-size: 18px;
+  font-weight: bold; /* Bold labels */
+  color: black; /* Darker label color */
+  margin-bottom: 10px; /* Space below labels */
+  margin-top: 10px;
+}
+
+input.form-control {
+    border: none; /* Remove all borders */
+    border-bottom: 1px solid #ccc; /* Add bottom border */
+    border-radius: 0; /* Remove border radius */
+    padding: 10px; /* Internal padding */
+    transition: border-color 0.3s ease; /* Transition for border color */
+    width: 100%; /* Full width for inputs */
+}
+
+input.form-control:focus {
+    border: none; /* No borders on focus */
+    border-bottom: 2px solid #ff9800; /* Highlight bottom border on focus */
+    box-shadow: none; /* No shadow effect */
+    outline: none; /* Remove default outline */
+}
+textarea.form-control {
+  border: 1px solid #ccc; /* Standard border on all sides */
+  border-radius: 4px; /* Slightly rounded corners */
+  padding: 10px; /* Internal padding */
+  transition: border-color 0.3s ease; /* Transition for border color */
+  width: 100%; /* Full width for textarea */
+}
+
+textarea.form-control:focus {
+  border-color: #ff9800; /* Change border color on focus */
+  box-shadow: 0 0 5px rgba(255, 152, 0, 0.5); /* Shadow effect on focus */
+  outline: none; /* Remove default outline */
+}
+
+
+
+.text-danger {
+  font-size: 0.875rem; /* Error message font size */
+  color: orangered; /* Error message color */
+  margin-top: 5px; /* Spacing */
+}
+
+.button-container {
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center the buttons */
+  margin-top: 20px; /* Spacing above the buttons */
+}
+
+.btn {
+  flex: 0 0 48%; /* Each button takes up 48% of the container */
+  margin: 0 1%; /* Margin for spacing between buttons */
+  padding: 15px; /* Increased padding for size */
+  font-size: 18px; /* Font size */
+  font-weight: 500; /* Button font weight */
+  border: none; /* No border */
+  border-radius: 20px; /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth background transition */
+}
+
+button.btn-warning {
+  background-color: rgb(4, 4, 104);  /* Warning button color */
+  color: #fff; /* Text color */
+}
+
+button.btn-secondary {
+  background-color: #6c757d; /* Secondary button color */
+  color: #fff; /* Text color */
+}
+
+button.btn:hover {
+  opacity: 0.9; /* Slight opacity on hover */
+}
+
+@media (max-width: 576px) {
+  .container {
+      padding: 20px; /* Less padding on small screens */
+  }
+
+  .button-container {
+      flex-direction: column; /* Stack buttons vertically on small screens */
+      align-items: center; /* Center align buttons */
+  }
+
+  button.btn {
+      width: 100%; /* Full-width buttons on small screens */
+      margin-bottom: 10px; /* Spacing between buttons */
+  }
+}
+.btn-warning {
+  background-color:#ff9800 ; /* Your desired color */
+  border-color: #007bff; /* Border color to match */
+}

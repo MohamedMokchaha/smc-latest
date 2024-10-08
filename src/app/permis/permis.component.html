@@ -1,0 +1,47 @@
+<div class="container mt-4">
+  <h5 class="text-center mb-4" style="font-size: 34px;">
+    Date d'obtention de votre / vos permis <br>
+    <span class="custom-warning">[DATE RÉELLE]</span>
+  </h5>
+
+  <form [formGroup]="permisForm" (ngSubmit)="onSubmit()">
+    <!-- Permis Inputs -->
+    <div class="row mb-3" *ngFor="let permis of ['A1', 'A2', 'A', 'B']; let i = index">
+      <div class="col">
+        <label for="permis{{ permis }}">Permis {{ permis }}<span class="optional"></span></label>
+        <input type="date" class="form-control" id="permis{{ permis }}" formControlName="permis{{ permis }}">
+        <div *ngIf="permisForm.get('permis' + permis)?.invalid && permisForm.get('permis' + permis)?.touched" class="text-danger">
+          Ce champ est obligatoire
+        </div>
+      </div>
+
+      <!-- Checkbox for Annulation / Suspension -->
+      <div class="col mt-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="annulation{{ permis }}" formControlName="annulation{{ permis }}">
+          <label class="form-check-label" for="annulation{{ permis }}">
+            Annulation / Suspension de permis durant les 36 derniers mois (Permis {{ permis }})
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Champ d'acquisition -->
+    <div class="row mb-3">
+      <div class="col">
+        <label for="acquisitionDate">Date d'acquisition<span class="optional"></span></label>
+        <input type="date" class="form-control" id="acquisitionDate" formControlName="acquisitionDate">
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="d-flex justify-content-between mt-4">
+      <button type="button" class="btn btn-secondary" (click)="goBack()">
+        <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Revenir en arrière
+      </button>
+      <button type="submit" class="btn btn-warning">
+        Étape suivante <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+      </button>
+    </div>
+  </form>
+</div>

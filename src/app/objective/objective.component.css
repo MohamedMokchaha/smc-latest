@@ -1,0 +1,207 @@
+ /* Style général pour le background et le texte */
+body {
+    background: linear-gradient(to bottom, #000428, #004683);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container responsive */
+.container {
+    background-color: rgba(255, 255, 255, 0.9); 
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 20px;
+    border: 2px solid rgb(5, 5, 92); /* Cadre bleu autour du conteneur */
+    width: 90%;
+    max-width: 750px;
+    margin-bottom: 30px;
+}
+
+
+/* Styles pour les titres */
+h1, h2 {
+    margin-bottom: 20px;
+    color: rgb(5, 5, 92); /* Darker color for better readability */
+    font-family: 'Arial', sans-serif; /* Modern font */
+    font-weight: bold;
+}
+
+/* Liste d'informations */
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0; /* Reduced margin for tighter spacing */
+}
+
+.info-list li {
+    margin: 10px 0;
+    font-size: 18px;
+    position: relative;
+    padding-left: 30px;
+    color: black; /* Softer color for text */
+    line-height: 1.6;
+}
+
+.info-list li::before {
+    content: "\f058"; /* Unicode for check-circle-o */
+    font-family: FontAwesome; /* Use Font Awesome font family */
+    position: absolute;
+    left: 0;
+    color: orange; /* Set the color to red */
+    font-weight: bold;
+    font-size: 18px; /* Adjust size if necessary */
+    line-height: 1.6; /* Align with text */
+}
+
+
+/* Icons et animation */
+.icons {
+    margin: 20px 0;
+}
+
+.moto-icon {
+    width: 350px;
+    margin: 0 10px;
+    
+}
+
+
+
+
+
+/* Styles pour les labels des formulaires */
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: black; /* Softer label color */
+}
+
+.form-check-label {
+    color: black;
+}
+
+/* Container pour les boutons */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 25px; /* Adjusted for better spacing */
+}
+
+/* Styles des boutons */
+.btn {
+    flex: 1;                                     /* Occupy equal space */
+    margin: 10px;                               /* Margin between buttons */
+    padding: 15px;                              /* Increased padding for size */
+    font-size: 18px;                            /* Font size */
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition for button hover */
+}
+
+.btn-primary {
+    background-color: rgb(4, 4, 104);          /* Primary button color */
+    color: white;                                /* Text color */
+    border: none;                                /* No border */
+    border-radius: 20px;                      /* Rounded button */
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background-color: rgb(6, 6, 143);           /* Hover effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+    transform: translateY(-2px);                /* Slight lift on hover */
+}
+
+/* Message d'erreur */
+.error-message {
+    color: red;
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+/* Styles des champs d'entrée */
+input.form-control,
+select.form-control {
+    border: none; /* Remove all borders */
+    border-bottom: 1px solid #ccc; /* Add border only at the bottom */
+    padding: 12px; /* Padding for a better touch area */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff; /* Light background */
+    font-size: 18px; /* Font size */
+    border-radius: 0; /* Remove rounded corners */
+}
+
+input.form-control:focus,
+select.form-control:focus {
+    border-bottom: 1px solid #ff9800; /* Change bottom border color on focus */
+    box-shadow: none; /* No shadow */
+    outline: none; /* Remove default outline */
+}
+
+/* Styles pour le sélecteur avec icône */
+
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    
+
+    /* Adjust button size for mobile */
+    .btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    /* Adjust icon size for mobile */
+    .moto-icon {
+        width: 70px; /* Adjusted size for mobile */
+    }
+}
+
+/* Styles pour les champs obligatoires */
+.required {
+    color: orangered;
+}
+.select-icon {
+    position: relative;
+    width: 100%; /* Prend toute la largeur du conteneur parent */
+}
+
+.select-icon select {
+    width: 100%; /* Assure que le select s'étend sur toute la largeur */
+    padding: 12px 10px 12px 30px; /* Ajuste les paddings pour l'icône et le texte */
+    font-size: 18px; /* Taille de la police pour la lisibilité */
+    border: none; /* Supprime les bordures */
+    border-bottom: 1px solid #ccc; /* Bordure inférieure pour l'esthétique */
+    background-color: #fff; /* Fond blanc pour le dropdown */
+    transition: border-color 0.3s ease; /* Transition pour la couleur de la bordure */
+}
+
+.select-icon select:focus {
+    border-bottom: 1px solid #ff9800; /* Change la couleur de la bordure inférieure au focus */
+    outline: none; /* Enlève le contour par défaut */
+}
+
+.select-icon::before {
+    content: "\f107"; /* Icône FontAwesome pour le dropdown */
+    font-family: FontAwesome;
+    position: absolute;
+    left: 10px; /* Positionne l'icône */
+    top: 50%; /* Centre l'icône verticalement */
+    transform: translateY(-50%); /* Ajuste pour un meilleur centrage */
+    color: black; /* Couleur de l'icône */
+    pointer-events: none; /* L'icône ne doit pas interférer avec les clics */
+}
+
+/* Media Query pour petits écrans */
+@media (max-width: 768px) {
+    .select-icon select {
+        font-size: 14px; /* Réduction de la taille de la police pour les petits écrans */
+        padding: 10px 30px; /* Ajustement des paddings */
+
+    }
+}

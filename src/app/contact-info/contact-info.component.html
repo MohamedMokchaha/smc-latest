@@ -1,0 +1,99 @@
+<div class="container mt-5">
+  <h2 class="text-center">Vos Coordonnées</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="firstName">Prénom :<span class="required">*</span></label>
+        <div class="input-icon">
+          <i class="fa fa-user"></i>
+          <input type="text" class="form-control" id="firstName" [(ngModel)]="firstName" name="firstName" required>
+        </div>
+        <div *ngIf="!firstName && submitted" class="text-danger">Ce champ est requis</div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="lastName">Nom :<span class="required">*</span></label>
+        <div class="input-icon">
+          <i class="fa fa-user"></i>
+          <input type="text" class="form-control" id="lastName" [(ngModel)]="lastName" name="lastName" required>
+        </div>
+        <div *ngIf="!lastName && submitted" class="text-danger">Ce champ est requis</div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="email">Email : <span class="required">*</span></label>
+        <div class="input-icon">
+          <i class="fa fa-envelope"></i>
+          <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email" required>
+        </div>
+        <small class="text-danger" *ngIf="!email && submitted">Ce champ est requis</small>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="phone">Téléphone :<span class="required">*</span></label>
+        <div class="input-icon">
+          <i class="fa fa-phone"></i>
+          <input type="tel" class="form-control" id="phone" [(ngModel)]="phone" name="phone" required>
+        </div>
+        <small class="text-danger" *ngIf="!phone && submitted">Ce champ est requis</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="birthDate">Date de Naissance:<span class="required">*</span></label>
+      <div class="input-icon">
+        <i class="fa fa-calendar"></i>
+        <input type="date" id="birthDate" [(ngModel)]="birthDate" name="birthDate" required class="form-control" />
+      </div>
+      <small class="text-danger" *ngIf="!birthDate && submitted">Ce champ est requis</small>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="address">Adresse : <span class="required">*</span></label>
+        <div class="input-icon">
+          <i class="fa fa-home"></i>
+          <input type="text" class="form-control" id="address" [(ngModel)]="address" name="address" required>
+        </div>
+        <small class="text-danger" *ngIf="!address && submitted">Ce champ est requis</small>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="postalCode">Code Postal : <span class="required">*</span></label>
+        <div class="input-icon">
+          <i class="fa fa-map"></i>
+          <input type="text" class="form-control" id="postalCode" [(ngModel)]="postalCode" name="postalCode" required>
+        </div>
+        <small class="text-danger" *ngIf="!postalCode && submitted">Ce champ est requis</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="city">Ville: <span class="required">*</span></label>
+      <div class="input-icon">
+        <i class="fa fa-map-marker"></i>
+        <input type="text" id="city" [(ngModel)]="city" name="city" required class="form-control" />
+      </div>
+      <small class="text-danger" *ngIf="!city && submitted">Ce champ est requis</small>
+    </div>
+
+    <div class="form-check mt-3">
+      <input class="form-check-input" type="checkbox" id="parkingAddress" [(ngModel)]="parkingAddress" name="parkingAddress">
+      <label class="form-check-label" for="parkingAddress">
+        Correspond au lieu de stationnement du véhicule
+      </label>
+    </div>
+
+    <div class="d-flex justify-content-between mt-4">
+      <button type="button" class="btn btn-secondary" (click)="goBack()">
+        <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Revenir en arrière
+      </button>
+      <button type="submit" class="btn btn-primary" [disabled]="!isFormValid()">
+        Étape suivante <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+      </button>
+
+    </div>
+  </form>
+</div>

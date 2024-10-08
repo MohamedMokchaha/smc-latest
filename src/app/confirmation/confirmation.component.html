@@ -1,0 +1,84 @@
+<div class="container mt-4">
+  <h5 class="text-center mb-4">
+    MERCI POUR VOTRE DEMANDE <i class="fa fa-smile-o" aria-hidden="true" style="color:#ff9800;"></i> .<br>
+    NOS ÉQUIPES VONT VOUS CONTACTER AU PLUS VITE.
+  </h5>
+
+  <h6>Informations de votre demande :</h6>
+
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Détails du contact</h5>
+      <p class="card-text"><strong>Nom :</strong> {{ formData.contact.firstName }} {{ formData.contact.lastName }}</p>
+      <p class="card-text"><strong>Email :</strong> {{ formData.contact.email }}</p>
+      <p class="card-text"><strong>Téléphone :</strong> {{ formData.contact.phone }}</p>
+      <p class="card-text"><strong>Adresse :</strong> {{ formData.contact.address }}, {{ formData.contact.city }} {{ formData.contact.postalCode }}</p>
+      <p class="card-text"><strong>Date de naissance :</strong> {{ formData.contact.birthDate }}</p>
+    </div>
+  </div>
+
+  <div class="card mt-3">
+    <div class="card-body">
+      <h5 class="card-title">Objectif</h5>
+      <p class="card-text"><strong>Option choisie :</strong> {{ formData.objective.selectedOption }}</p>
+      <p class="card-text"><strong>Annulation :</strong> {{ formData.objective.annulation ? 'Oui' : 'Non' }}</p>
+      <p class="card-text"><strong>Date d'achat :</strong> {{ formData.objective.purchaseDate }}</p>
+    </div>
+  </div>
+
+  <div class="card mt-3">
+    <div class="card-body">
+      <h5 class="card-title">Détails du véhicule</h5>
+      <p class="card-text"><strong>Marque :</strong> {{ formData.vehicle.vehicleBrand }}</p>
+      <p class="card-text"><strong>Modèle :</strong> {{ formData.vehicle.model }}</p>
+      <p class="card-text"><strong>Capacité du moteur :</strong> {{ formData.vehicle.engineCapacity }}</p>
+      <p class="card-text"><strong>Numéro d'immatriculation :</strong> {{ formData.vehicle.registrationNumber }}</p>
+      <p class="card-text"><strong>Date d'acquisition :</strong> {{ formData.vehicle.acquisitionDate }}</p>
+    </div>
+  </div>
+
+  <div class="card mt-3">
+    <div class="card-body">
+      <h5 class="card-title">Détails du permis</h5>
+      <p class="card-text"><strong>Permis A1 :</strong> {{ formData.permis.permisA1 }}</p>
+      <p class="card-text"><strong>Permis A2 :</strong> {{ formData.permis.permisA2 }}</p>
+      <p class="card-text"><strong>Permis A :</strong> {{ formData.permis.permisA }}</p>
+      <p class="card-text"><strong>Permis B :</strong> {{ formData.permis.permisB }}</p>
+      <p class="card-text"><strong>Annulation Permis A :</strong> {{ formData.permis.annulationA ? 'Oui' : 'Non' }}</p>
+    </div>
+  </div>
+
+  <form (ngSubmit)="sendRequest()" #myForm="ngForm" class="mt-4">
+    <label for="informations">Informations complémentaires :</label>
+    <textarea id="informations" name="informations" class="form-control" rows="4" [(ngModel)]="additionalInfo"></textarea>
+
+    <label for="comment">Comment nous avez-vous connus ?</label>
+    <input type="text" id="comment" name="comment" class="form-control" [(ngModel)]="comment">
+
+    <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+
+    <div class="button-container mt-3">
+      <button type="button" class="btn btn-secondary" (click)="goBack()">
+        <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Revenir en arrière
+      </button>
+      <button type="submit" class="btn btn-warning">
+        <i class="fa fa-check btn-icon-prepend"></i> Envoyer ma demande
+      </button>
+    </div>
+  </form>
+
+  <div class="text-center mt-4">
+    <a href="https://calendly.com/your-link" target="_blank" class="btn btn-warning">
+      <i class="fa fa-calendar" aria-hidden="true"></i> Prenez un rendez-vous
+    </a>
+  </div>
+
+  <div id="confirmation" class="confirmation mt-4" *ngIf="confirmationVisible">
+    Merci pour votre demande. Nos équipes vont vous contacter au plus vite.
+    <br>
+    Vous pouvez également prendre rendez-vous directement en cliquant sur ce lien :
+    <a href="https://calendly.com/votre-lien-calendly">Prendre rendez-vous</a>
+  </div>
+</div>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
