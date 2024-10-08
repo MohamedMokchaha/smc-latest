@@ -55,6 +55,16 @@
     <label for="comment">Comment nous avez-vous connus ?</label>
     <input type="text" id="comment" name="comment" class="form-control" [(ngModel)]="comment">
 
+    <div class="form-check mt-3">
+      <input type="checkbox" class="form-check-input" id="acceptTerms" name="acceptTerms" [(ngModel)]="acceptTerms" #acceptTermsCtrl="ngModel" required>
+      <label class="form-check-label" style="margin-top: -2px;" for="acceptTerms">
+        J'accepte que mes informations soient utilisées pour me contacter et recevoir des offres personnalisées.
+      </label>
+      <div *ngIf="acceptTermsCtrl.invalid && acceptTermsCtrl.touched" class="text-danger">
+        Veuillez accepter les conditions pour poursuivre.
+      </div>
+    </div>
+
     <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
 
     <div class="button-container mt-3">

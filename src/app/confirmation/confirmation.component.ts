@@ -11,6 +11,7 @@ export class ConfirmationComponent implements OnInit {
   confirmationVisible: boolean = false;
   additionalInfo: string = ''; // Pour stocker les informations complémentaires
   comment: string = ''; // Pour stocker le commentaire
+  acceptTerms: boolean = false;
   formData: any; // Déclarez formData ici
 
   constructor(private router: Router, private demandeService: DemandeService) {}
@@ -22,6 +23,11 @@ export class ConfirmationComponent implements OnInit {
   }
 
   sendRequest() {
+    
+      if (!this.acceptTerms) {
+        alert("Vous devez accepter les conditions pour soumettre votre demande.");
+        return;
+      }
     // Valider si 'additionalInfo' et 'comment' sont vides
     const additionalInfoToSend = this.additionalInfo || 'Non renseigné';
     const commentToSend = this.comment || 'Non renseigné';
